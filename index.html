@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AAA Looks Salon</title>
+    <style>
+        /* General Styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e1e;
+            color: #f1f1f1;
+        }
+
+        /* Header & Navigation */
+        header {
+            background-color: #000;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            padding: 10px 0;
+        }
+
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            font-size: 18px;
+            margin: 0 10px;
+        }
+
+        .navbar a:hover {
+            background-color: #ff6f61;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 30px 20px;
+            text-align: center;
+            background-color: #444;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            margin-bottom: 40px;
+        }
+
+        .intro p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #f1f1f1;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Button Container */
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .button-container button {
+            padding: 14px 24px;
+            font-size: 16px;
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .button-container button:hover {
+            background-color: #e65c4f;
+            transform: translateY(-3px);
+        }
+
+        /* Services Section */
+        section {
+            display: none;
+            padding: 30px 20px;
+            margin: 20px auto;
+            background-color: #333;
+            border-radius: 10px;
+            max-width: 900px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        section h3 {
+            text-align: center;
+            color: #ff6f61;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        /* Table Styling */
+        .services-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+
+        .services-table th, .services-table td {
+            padding: 12px;
+            border: 1px solid #555;
+            text-align: center;
+            font-size: 16px;
+        }
+
+        .services-table th {
+            background-color: #444;
+            color: #ff6f61;
+        }
+
+        .services-table td {
+            background-color: #555;
+        }
+        .gallery img {
+    width: 33.1%;
+    height: 390px; /* Set the height as needed */
+    object-fit: cover; /* Maintain aspect ratio while covering the space */
+    transition: transform 0.3s; /* Smooth transition for hover effect */
+}
+
+.gallery img:hover {
+    transform: scale(1.05); /* Scale up on hover */
+}
+
+
+        /* Contact Section */
+        .contact {
+            text-align: center;
+            padding: 30px;
+            background-color: #444;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+
+        .contact h3 {
+            color: #ff6f61;
+            margin-bottom: 20px;
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin: 12px 0;
+        }
+
+        
+
+        /* Appointment Section */
+        .appointment {
+            text-align: center;
+            padding: 30px;
+            background-color: #333;
+            max-width: 800px;
+            max-height: auto;
+            margin: 0 auto;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            margin-bottom: 20px;
+            margin-top: 10px;
+        }
+
+        .appointment button {
+            padding: 14px 24px;
+            font-size: 16px;
+            background-color: #25d366;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 0 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .appointment button:hover {
+            background-color: #20b755;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container">
+        <img src="logo.png" class="logo">
+    </div>
+    
+
+<!-- Header and Navigation -->
+<header>AAA Looks Salon</header>
+<div class="navbar">
+    <a href="#" onclick="showSection('hair-services')">Hair Services</a>
+    <a href="#" onclick="showSection('face-body-services')">Face & Body Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#appointment">Book Appointment</a>
+    <a href="#contact">Contact Us</a>
+</div>
+
+<!-- Intro Section -->
+<div class="intro">
+    <p>AAA Looks Salon: Unwind and indulge with us! Led by a New Delhi beauty expert with over 12 years of experience, we pamper you with the finest salon & treatments. From haircuts & hairstyling to facials & massages, we cater to all your beauty needs. Discover a haven of relaxation and emerge looking and feeling your absolute best.</p>
+</div>
+
+<!-- Button Container -->
+<div class="button-container">
+    <button onclick="showSection('hair-services')">Hair Services</button>
+    <button onclick="showSection('face-body-services')">Face & Body Services</button>
+</div>
+
+<!-- Hair Services Section -->
+<section id="hair-services">
+    <h3>Hair Services</h3>
+    
+    <h4>Hair Cut</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Normal Hair Cut</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Style Specific Cut</td>
+            <td>150 - 200</td>
+        </tr>
+        <tr>
+            <td>Hair Cut (with wash)</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Girl (Below 10 yrs)</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Split Ends</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Fringes / Flicks</td>
+            <td>150</td>
+        </tr>
+    </table>
+
+    <h4>Hair Styling</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Straight Blow Dry</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Outcurls</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>Ironing</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Ringlets</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>Chignon / Updo</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <h4>Shampoo & Conditioning</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Shampoo</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Shampoo & Conditioner</td>
+            <td>200</td>
+        </tr>
+    </table>
+
+    <h4>Texture Service</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Keratin</td>
+            <td>1500 & UP</td>
+        </tr>
+        <tr>
+            <td>Shine Bond</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>Perming</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>Botox</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>Straightening / Smoothening</td>
+            <td>2500 & UP</td>
+        </tr>
+    </table>
+
+    <h4>Hair Color</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Color Application</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>Root Touch Up</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Highlights (Global)</td>
+            <td>2500</td>
+        </tr>
+        <tr>
+            <td>Global</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>Creative Color</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>(Extra Length Depends on length)</td>
+            <td>Varies</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Face & Body Services Section -->
+<section id="face-body-services">
+    <h3>Face & Body Services</h3>
+    
+    <h4>Threading</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Eyebrows</td>
+            <td>20</td>
+        </tr>
+        <tr>
+            <td>Upper lip / Forehead / Chin</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Stripless (Upper lip/Chin/Neck)</td>
+            <td>30</td>
+        </tr>
+        <tr>
+            <td>Stripless (Side Wax)</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Full Face Threading</td>
+            <td>70</td>
+        </tr>
+        <tr>
+            <td>Full Face Waxing</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <h4>Bleach</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Face</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>De-Tan</td>
+            <td>100</td>
+        </tr>
+        <tr>
+            <td>Hands</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>Legs</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Full Body</td>
+            <td>700</td>
+        </tr>
+    </table>
+
+    <h4>Body Wax</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Underarms</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Full Front</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Full Back</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Arms</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Rica Wax (Arms)</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Legs (Full)</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Rica Wax (Legs)</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>Full Body Wax</td>
+            <td>700</td>
+        </tr>
+    </table>
+
+    <h4>Facials</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Face Cleanup</td>
+            <td>300</td>
+        </tr>
+        <tr>
+            <td>Normal Facial</td>
+            <td>400</td>
+        </tr>
+        <tr>
+            <td>Gold Facial</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>Red Wine Facial</td>
+            <td>700</td>
+        </tr>
+        <tr>
+            <td>Diamond Facial</td>
+            <td>800</td>
+        </tr>
+        <tr>
+            <td>Brightening Facial</td>
+            <td>1000</td>
+        </tr>
+        <tr>
+            <td>Korean Facial</td>
+            <td>1000</td>
+        </tr>
+        <tr>
+            <td>Hydra Facial</td>
+            <td>1500</td>
+        </tr>
+        <tr>
+            <td>O₃ Facial</td>
+            <td>1500</td>
+        </tr>
+    </table>
+
+    <h4>Body Ritual</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Coconut Oil</td>
+            <td>500</td>
+        </tr>
+        <tr>
+            <td>Almond Oil</td>
+            <td>700</td>
+        </tr>
+        <tr>
+            <td>Olive Oil</td>
+            <td>900</td>
+        </tr>
+        <tr>
+            <td>Body Polish</td>
+            <td>1500</td>
+        </tr>
+    </table>
+
+    <h4>Hand & Feet</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Nail Cutting / Filing</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Nail Paint</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Normal Pedicure</td>
+            <td>350</td>
+        </tr>
+        <tr>
+            <td>Delux Pedicure</td>
+            <td>600</td>
+        </tr>
+        <tr>
+            <td>Foot Massage</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>Normal Manicure</td>
+            <td>200</td>
+        </tr>
+        <tr>
+            <td>Delux Manicure</td>
+            <td>400</td>
+        </tr>
+        <tr>
+            <td>Hand Massage</td>
+            <td>150</td>
+        </tr>
+    </table>
+
+    <h4>Make Up</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Eye Makeup</td>
+            <td>150</td>
+        </tr>
+        <tr>
+            <td>Party Makeup</td>
+            <td>1000</td>
+        </tr>
+        <tr>
+            <td>Bridal Makeup</td>
+            <td>3000</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Additional Services Section -->
+<section id="additional-services">
+    <h3>Additional Services</h3>
+    
+    <h4>Bridal Packages</h4>
+    <table class="services-table">
+        <tr>
+            <th>Package</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Bridal Makeup Package</td>
+            <td>3000</td>
+        </tr>
+        <tr>
+            <td>Bridal Package (Includes Hair)</td>
+            <td>5000</td>
+        </tr>
+    </table>
+
+    <h4>Special Occasion Packages</h4>
+    <table class="services-table">
+        <tr>
+            <th>Package</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Engagement Makeup</td>
+            <td>2000</td>
+        </tr>
+        <tr>
+            <td>Party Makeup Package</td>
+            <td>1500</td>
+        </tr>
+    </table>
+</section>
+
+<!-- Kids Services Section -->
+<section id="kids-services">
+    <h3>Kids Services</h3>
+
+    <h4>Hair Cut</h4>
+    <table class="services-table">
+        <tr>
+            <th>Service</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Kids Hair Cut</td>
+            <td>100</td>
+        </tr>
+    </table>
+
+    <h4>Special Packages</h4>
+    <table class="services-table">
+        <tr>
+            <th>Package</th>
+            <th>Price (INR)</th>
+        </tr>
+        <tr>
+            <td>Kids Party Package</td>
+            <td>1000</td>
+        </tr>
+    </table>
+</section>
+
+<style>
+    .services-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+    }
+    
+    .services-table th, .services-table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    .services-table th {
+        background-color: #f2f2f2;
+    }
+    .logo-container {
+    position: absolute; /* Allows positioning relative to the closest positioned ancestor */
+    top: 5px; /* Adjust as needed for spacing from the top */
+    left: 60px; /* Adjust as needed for spacing from the left */
+    z-index: 1000; /* Ensure it's above other elements */
+}
+
+.logo {
+    height: 64px; /* Adjust height as needed */
+    width: auto; /* Maintains aspect ratio */
+}
+
+</style>
+
+
+<!-- Gallery Section -->
+<div id="gallery" class="gallery">
+    <img src="p1.jpg" >
+    <img src="p2.jpg" >
+    <img src="p5.jpg" >
+</div>
+
+<!-- Appointment Section -->
+<div id="appointment" class="appointment">
+    <h3>Book My Appointment</h3>
+    <button onclick="window.open('https://wa.me/+918826683549?text=I would like to book an appointment.', '_blank')">Message on WhatsApp</button>
+</div>
+
+<!-- Contact Section -->
+<div id="contact" class="contact">
+    <h3>Contact Us</h3>
+    <p><strong>Phone:</strong> 7905756726, 8826683549</p>
+    <p><strong>Email:</strong> <a href="mailto:www.aaalooks@gmail.com">www.aaalooks@gmail.com</a></p>
+    <p><strong>Address:</strong> 1st floor, 151A/38, Anukool Chandra Banarjee Marg, opposite Banshi Bhawan, Tagore Town, Prayagraj, Uttar Pradesh 211002</p>
+    
+
+</div>
+
+<!-- Footer -->
+<footer>
+    &copy; 2024 AAA Looks Salon. All Rights Reserved.
+</footer>
+
+<!-- JavaScript for Section Visibility -->
+<script>
+    function showSection(sectionId) {
+    const section = document.getElementById(sectionId);
+    // Check if the section is currently displayed
+    if (section.style.display === "block") {
+        section.style.display = "none"; // If it is displayed, hide it
+    } else {
+        // Hide other sections if needed
+        const otherSections = ['hair-services', 'face-body-services'].filter(id => id !== sectionId);
+        otherSections.forEach(id => {
+            document.getElementById(id).style.display = "none"; // Hide other sections
+        });
+        
+        section.style.display = "block"; // Show the selected section
+    }
+}
+
+</script>
+
+</body>
+</html>
